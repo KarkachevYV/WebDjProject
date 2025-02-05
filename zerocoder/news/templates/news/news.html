@@ -5,25 +5,37 @@
 {% endblock %}
 
 {% block content %}
-    <h4>История изменений в Django</h4>
-    <p>Django был создан в 2003 году в редакции <strong>Lawrence Journal-World</strong> для удобного управления веб-приложениями. В 2005 году он был выпущен как проект с открытым исходным кодом.</p>
-    <p><strong>Ключевые этапы развития:</strong></p>
-    <ul>
-        <li><strong>2008:</strong> Выпуск версии 1.0 с полной документацией.</li>
-        <li><strong>2012:</strong> Django 1.4 — долгосрочная поддержка (LTS).</li>
-        <li><strong>2017:</strong> Django 2.0 — отказ от Python 2, переход на Python 3.</li>
-        <li><strong>2020:</strong> Django 3.0 — асинхронные возможности.</li>
-        <li><strong>2022:</strong> Django 4.0 — поддержка новых версий Python и улучшения ORM.</li>
-    </ul>
-    <p>Сегодня Django продолжает развиваться и остаётся одним из самых популярных фреймворков для веб-разработки.</p>
+    <section class="history-section">
+        <h2>История изменений в Django</h2>
+        <p>Django был создан в 2003 году в редакции <strong>Lawrence Journal-World</strong> для удобного управления веб-приложениями. В 2005 году он был выпущен как проект с открытым исходным кодом.</p>
+        <h3>Ключевые этапы развития:</h3>
+        <ul>
+            <li><strong>2008:</strong> Выпуск версии 1.0 с полной документацией.</li>
+            <li><strong>2012:</strong> Django 1.4 — долгосрочная поддержка (LTS).</li>
+            <li><strong>2017:</strong> Django 2.0 — отказ от Python 2, переход на Python 3.</li>
+            <li><strong>2020:</strong> Django 3.0 — асинхронные возможности.</li>
+            <li><strong>2022:</strong> Django 4.0 — поддержка новых версий Python и улучшения ORM.</li>
+        </ul>
+        <p>Сегодня Django продолжает развиваться и остаётся одним из самых популярных фреймворков для веб-разработки.</p>
+    </section>
     <hr>
-    <h4>Новостная страница</h4>
-    <hr>
-    {% for new in news %}
-      <div>
-        <h4>{{ new.title }}</h4>
-        <p>{{ new.short_description }}</p>
-      </div>
-    {% endfor %}
-
+    <section class="news-section">
+        <h2>Новостная страница</h2>
+        <hr>
+        {% for new in news %}
+            <article class="news-item">
+                <header>
+                    <h3>{{ new.title }}</h3>
+                </header>
+                <p>{{ new.short_description }}</p>
+                <p>{{ new.text }}</p>
+                <footer>
+                    <small>Опубликовано: <time datetime="{{ new.pub_date|date:'c' }}">{{ new.pub_date }}</time> автор: <strong>{{ new.author }}</strong></small>
+                </footer>
+            </article>
+        {% empty %}
+            <p>Новостей нет.</p>
+        {% endfor %}
+    </section>
 {% endblock %}
+
