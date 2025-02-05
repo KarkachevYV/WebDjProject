@@ -1,0 +1,17 @@
+{% extends "main/layoute.html" %}
+
+{% block title %}
+    <title> Третья страница</title>
+{% endblock %}
+
+{% block content %}
+    <h4>Инициализация и запуск проекта {{caption}} (урок №2)</h4>
+    <p><strong>Основные шаги:</strong></p>
+    <ol>
+        <li>Установите {{caption}}: <code>pip install django</code></li>
+        <li>Создайте новый проект: <code>django-admin startproject myproject</code></li>
+        <li>Перейдите в каталог проекта: <code>cd myproject</code></li>
+        <li>Запустите сервер разработки: <code>python manage.py runserver</code></li>
+        <li>Откройте в браузере: <code>http://127.0.0.1:8000/</code></li>
+    </ol>
+{% endblock %}

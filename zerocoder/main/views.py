@@ -2,13 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-  return HttpResponse('<p>Это 1 страничка через HttpResponse</p>')
+  return render(request, 'main/index.html', {'caption':"Фреймворка Django"})
 
 def new(request):
-  return HttpResponse('<p>Это 2 страничка через HttpResponse</p>')
+ return render(request, 'main/new.html',  {'caption':"Фреймворка Django"})
 
 def data(request):
-  return HttpResponse('<p>ПРИВЕТ через HttpResponse</p>')
-
+   return render(request, 'main/data.html',  {'caption':"Фреймворк Django"})
 def test(request):
-  return HttpResponse('<p>ПОКА через HttpResponse</p>')
+   return render(request, 'main/test.html',  {'caption':"Фреймворка Django"})

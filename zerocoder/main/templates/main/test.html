@@ -1,0 +1,31 @@
+{% extends "main/layoute.html" %}
+
+{% block title %}
+    <title> Четвёртая страница </title>
+{% endblock %}
+
+{% block content %}
+    <h4>Взаимодействие {{caption}} с PostgreSQL (дополнение к уроку №2)</h4>
+    <p><strong>Основные шаги настройки:</strong></p>
+    <ol>
+        <li>Установите драйвер: <code>pip install psycopg2</code></li>
+        <li>В <code>settings.py</code> настройте базу данных:</li>
+    </ol>
+    <pre><code>
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': 'myuser',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+    </code></pre>
+    <ol start="3">
+        <li>Примените миграции: <code>python manage.py migrate</code></li>
+        <li>Создайте суперпользователя: <code>python manage.py createsuperuser</code></li>
+        <li>Запустите сервер: <code>python manage.py runserver</code></li>
+    </ol>
+{% endblock %}
