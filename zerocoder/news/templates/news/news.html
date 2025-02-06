@@ -24,6 +24,7 @@
         <hr>
         {% for new in news %}
             <article class="news-item">
+                <hr>
                 <header>
                     <h3>{{ new.title }}</h3>
                 </header>
@@ -32,6 +33,7 @@
                 <footer>
                     <small>Опубликовано: <time datetime="{{ new.pub_date|date:'c' }}">{{ new.pub_date }}</time> автор: <strong>{{ new.author }}</strong></small>
                 </footer>
+                <hr>
             </article>
         {% empty %}
             <p>Новостей нет.</p>

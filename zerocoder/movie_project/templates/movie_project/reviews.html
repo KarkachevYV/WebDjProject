@@ -1,0 +1,25 @@
+{% extends "main/layoute.html" %}
+
+{% block title %}
+    <title>Отзывы о фильме</title>
+{% endblock %}
+
+{% block content %}
+    <h4> Отзывы о фильме (Урок №4) </h4>
+    {% if  reviews %}
+        {% for review in reviews %}
+        <div class="card">
+            <div class="card" style="width: 33rem;">
+              <div class="card-body">
+                 <h3 class="card-title"> {{ review.title }} </h3>
+                 <p class="card-text"> {{ review.description }} </p>
+                 <p class="card-text"> {{ review.movie_review }} </p>
+                 <p class="card-text"> {{ review.author }} </p>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h4>Отзывов ещё нет.</h4>
+    {% endif %}        
+{% endblock %}
